@@ -1,0 +1,9 @@
+# ROS2
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# ESP32
+esp32_firmware/.vscode/
+
+

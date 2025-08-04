@@ -1,0 +1,19 @@
+<launch>
+    <let name="urdf_path" value="$(find-pkg-share jeff)/urdf/my_robot.urdf.xacro"/>
+    <let name="rviz_path" value="$(find-pkg-share jeff)/rviz/diffdrive_config.rviz"/>
+
+    <!-- Robot State Publisher -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" exec="robot_state_publisher">
+        <param name="robot_description" value="$(command 'xacro $(var urdf_path)')"/>
+    </node>
+
+    <!-- Static transform between base_footprint and base_link -->
+    <node pkg="tf2_ros" exec="static_transform_publisher" name="base_footprint"
+          args="0 0 0 0 0 0 base_footprint base_link" />
+
+    <!-- Joint State Publisher -->
+    <node pkg="joint_state_publisher" exec="joint_state_publisher"/>
+
+    <!-- RViz -->
+    <node pkg="rviz2" exec="rviz2" output="screen" args="-d $(var rviz_path)"/>
+</launch>
