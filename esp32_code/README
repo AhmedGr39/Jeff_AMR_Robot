@@ -1,8 +1,8 @@
-# ESP32 Firmware for Jeff AMR
+ESP32 Firmware for Jeff AMR
 
 This folder contains the code that runs on the ESP32 microcontroller.
 
-## Hardware Components
+Hardware Components
 
 - ESP32-WROOM-32
 - DRV8833 Motor Driver
@@ -12,12 +12,12 @@ This folder contains the code that runs on the ESP32 microcontroller.
 - Rotary encoders connected to GPIOs with interrupts
 - LED PWM pins via `ledcWrite`
 
-## Firmware Files
+Firmware Files
 
 - `esp32_microRos.ino`: Handles motor control, encoder readings, and publishes odometry to ROS2 via micro-ROS.
 - `esp32_web_interface.ino`: Basic web server to control the robot manually.
 
-## Notes
+Notes
 
 - PWM frequency is set to `500 Hz` to reduce motor noise.
 - Uses a basic PID controller for smoother motion.
